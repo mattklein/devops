@@ -1,0 +1,38 @@
+what are the entities?
+
+an AMI creator
+ - base AMI (e.g., canonical ubuntu AMI)
+ - package config
+ - deployment codebases (w/attribute to remove after spinup)
+ - methods:
+   - create an AMI
+
+an instance type
+  - e.g., web server, worker
+  - state:
+    - ec2 type (e.g., t1.micro)
+    - generation (e.g., 2012-09-29)
+    - base AMI (would be ours)
+    - security groups
+    - deployment codebases
+    - dependencies: e.g.:
+      - dbhost config
+      - collectd config
+      - crontab config
+      - profile config
+      - pgbouncer config
+    - user account(s)
+    - AWS keys
+  - behavior:
+    - 
+
+a tier
+  - e.g., web tier, worker tier, DB tier
+
+what's the functionality?
+
+deploy code
+
+{'instance_types':
+	'web_server':
+		}

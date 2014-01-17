@@ -1,0 +1,12 @@
+NEXT: start with the ops registry?
+ - obtain the AMIs that exist in our account
+ - have some methods on the AMI: create instance
+
+What will the flow be, now that I've got an AMI?
+When we pull off AMIs from the ops-registry, do we return them as DEVOPS
+    objects, rather than Boto objects?
+I think so (but they'll wrap the Boto objects)
+
+What does returning them as devops objects get us?
+The ability to write my own methods on them
+E.g., activate/deactivate

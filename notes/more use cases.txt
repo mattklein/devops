@@ -1,0 +1,10 @@
+A python shell
+In which we could
+
+Spin up new instances
+Deploy software to instances
+
+What's more than just a good fab file?
+
+A system to manage our "applications"
+With a handle to our "ops registry"

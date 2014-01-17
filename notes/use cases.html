@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+	<style type="text/css">
+		body {
+			background-color: yellow;
+		}
+		li {
+			color: blue;
+		}
+	</style>
+</head>
+
+<body>
+<h1>Use cases</h1>
+
+<h2>AMI management</h2>
+
+<ol>
+
+<li>Create an AMI from a definition</li>
+
+	<ul>
+		<li>Create an instance from the definition</li>
+		<li>Snap an AMI from the instance</li>
+		<li>Terminate the instance</li>
+	</ul>
+
+<br/>
+<li>Create an instance from an AMI</li>
+	<ul>
+		<li>Obtain the list of AMIs from the ops registry</li>
+		<li>Invoke a method on the AMI: create an instance</li>
+	</ul>
+
+<br/>
+<li>Activate an instance</li>
+
+</ol>
+
+<h2>Ops registry</h2>
+
+<ol>
+
+<li>Obtain the AMIs</li>
+	<ul>
+		<li>Query for the AMIs; optional filter criteria:</li>
+			<ul>
+				<li>AMI name</li>
+				<li>AMI ID</li>
+			</ul>
+		<li>Operate on an AMI</li>
+			<ul>
+				<li>Create a new instance</li>
+				<p>(Also have a way to do this without first fetching the AMI)</p>
+			</ul>
+	</ul>
+
+</ol>
+
+</body>
+</html>

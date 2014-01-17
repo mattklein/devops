@@ -1,0 +1,83 @@
+data types
+
+an installation (?)
+ - keypair_name (locately)
+ - s3_bucket_name (locately-misc)
+
+an image (AMI)
+ - parent AMI ID (could be a Canonical AMI, could be one of ours)
+
+an instance type (Caliper)
+ - image ID (FK)
+ - alarms
+ - ebs_optimized
+ - security_groups
+ - codebases (caliper, siphon)
+ - ec2_type (t1.micro)
+
+a storage unit (the PostgreSQL data RAID array, the PostgreSQL WAL RAID array, the dev EBS volume)
+ - this is storage that's external to the instance
+ - is_raid
+ - num_volumes
+
+an EBS volume type
+ - size
+ - type (standard, io1)
+ - IOPS
+
+elastic IP
+ - name (siphon-admin, www, dev)
+ - IP address
+
+a config bundle
+ - e.g.,:
+   RABBITMQ_ADMIN_USERNAME
+   RABBITMQ_ADMIN_PW
+   some function that takes action
+ - collectd_conf_filename
+
+a deployment
+ - code repository
+ - codebase (siphon)
+
+a volume mounting
+ - mountpoint
+ - ownership
+ - disk_device
+ - raid_device
+
+an EBS volume (PostgreSQL data 1/8)
+ - zone (us-east-1d)
+
+an instance (caliper-3)
+ - instance type (FK) (caliper)
+ - zone (us-east-1d)
+
+an instance group (siphon-1, siphon-2, siphon-3)
+
+an alarm
+ - config options
+
+a load balancer
+ - config options
+
+a deployment (all caliper, siphon, DB instances)
+ - region (US East)
+
+instance registry
+ - instance type
+
+# critical design decision: should each of the instances have the ability
+#    to connect to the repos to "pull" code?  or should we always "push" code
+#    from some other machine onto the instances?
+# YES, we want the individual machines to be able to "pull" code from the repo
+#    this is a divergence from the way I've done things up until now
+#    but it'll be an improvement: more scalable, won't have to worry about the
+#    state of one's workspace when pushing, each instance will be able to pull
+#    code in parallel
+# we'll just want to do a better job of managing the SSH keys -- give each instance
+#    an SSH key that'll allow it to read the repo but not update
+# the instance will have the code on it anyway; so allowing it to read from the repo
+#    is no more permissive
+# also, if we're in a world where we have a more web-like repo (e.g., Git), this will
+#    be the better model
